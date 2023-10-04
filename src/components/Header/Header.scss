@@ -1,0 +1,94 @@
+@import "../../css-config/mixins.scss";
+
+.main-header {
+  width: 100%;
+  padding: 0 25px;
+  background-color: #3f1d38;
+  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  @include md {
+    padding: 0 45px;
+  }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    max-width: 1200px;
+    margin: 0 auto;
+    @include md {
+      height: 85px;
+    }
+    .left {
+      list-style-type: none;
+      display: none;
+      gap: 30px;
+      @include md {
+        display: flex;
+      }
+      li {
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+    }
+    .center {
+      font-size: 25px;
+      font-weight: 800;
+      cursor: pointer;
+      @include md {
+        font-size: 35px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      @include md {
+        gap: 30px;
+      }
+      svg {
+        font-size: 25px;
+        cursor: pointer;
+        @include md {
+          font-size: 25px;
+        }
+      }
+      .cart-icon {
+        position: relative;
+        span {
+          min-width: 20px;
+          text-align: center;
+          background-color: #4d3c77;
+          padding: 3px;
+          position: absolute;
+          top: -5px;
+          right: -12px;
+          font-size: 15px;
+          line-height: 1;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+
+  &.sticky-header {
+    position: sticky;
+    top: 0;
+    animation: stickyHeader 0.4s ease forwards;
+  }
+}
+
+@keyframes stickyHeader {
+  0% {
+    transform: translateY(-85px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
